@@ -1,0 +1,24 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "program": "${file}",
+            "name": "Rodar app.js",
+            "program": "${workspaceFolder}/TTP",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Run File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "pythonPath": "${workspaceFolder}/.venv/Scripts/python.exe",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "console": "integratedTerminal"
+        }
+    ]
+}

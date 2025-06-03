@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Pesquisa de Satisfação - Processo Seletivo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background: #fff;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 32px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        h1 {
+            color: #2d3e50;
+        }
+        p {
+            color: #444;
+            line-height: 1.6;
+        }
+        .rating {
+            margin: 24px 0;
+        }
+        .rating label {
+            font-size: 1.2em;
+            margin-right: 12px;
+        }
+        .rating input[type="radio"] {
+            margin-right: 6px;
+        }
+        textarea {
+            width: 100%;
+            min-height: 80px;
+            margin-top: 12px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            padding: 8px;
+            font-size: 1em;
+        }
+        button {
+            background: #2d3e50;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 16px;
+        }
+        button:hover {
+            background: #1a2533;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Queremos ouvir você!</h1>
+        <p>
+            Olá <strong>{{NOME_CANDIDATO}}</strong>,<br><br>
+            Sabemos que o resultado do processo seletivo realizado em <strong>{{DATA_PROCESSO}}</strong> não foi o esperado desta vez, mas agradecemos sinceramente pelo seu interesse em fazer parte do nosso time.<br><br>
+            Sua opinião é muito importante para que possamos melhorar nossos processos. Por favor, responda a pesquisa abaixo. Sua resposta será tratada com total confidencialidade.
+        </p>
+        <form>
+            <div class="rating">
+                <label>Como você avalia sua experiência no nosso processo seletivo?</label><br>
+                <label><input type="radio" name="satisfacao" value="5"> Excelente</label>
+                <label><input type="radio" name="satisfacao" value="4"> Boa</label>
+                <label><input type="radio" name="satisfacao" value="3"> Regular</label>
+                <label><input type="radio" name="satisfacao" value="2"> Ruim</label>
+                <label><input type="radio" name="satisfacao" value="1"> Péssima</label>
+            </div>
+            <label for="comentario">Gostaria de deixar algum comentário ou sugestão?</label>
+            <textarea id="comentario" name="comentario" placeholder="Escreva aqui sua opinião..."></textarea>
+            <button type="submit">Enviar resposta</button>
+        </form>
+        <p style="font-size:0.95em; color:#888; margin-top:24px;">
+            Agradecemos novamente pelo seu tempo e desejamos sucesso em sua trajetória!
+        </p>
+    </div>
+</body>
+</html>

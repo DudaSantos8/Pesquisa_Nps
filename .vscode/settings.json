@@ -1,0 +1,22 @@
+{
+    "python.pythonPath": "C:/Users/Zupper/Desktop/TTP/.venv/Scripts/python.exe",
+    "python.autoComplete.extraPaths": [
+        "./"
+    ],
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestEnabled": false,
+    "dart.debugExternalPackageLibraries": true,
+    "dart.debugSdkLibraries": false,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "[html]": {
+        "editor.suggest.insertMode": "replace"
+    },
+    "diffEditor.ignoreTrimWhitespace": false,
+    "workbench.editorAssociations": {
+        "*.pickle": "default"
+    },
+    "[javascript]": {
+        
+        "editor.maxTokenizationLineLength": 2500
+    }
+}
