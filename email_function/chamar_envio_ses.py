@@ -1,5 +1,5 @@
 from typing import List
-from enviar_ses import send_email
+from email_function.enviar_ses import send_email
 
 def enviar_email_candidatos_recusados_ses(
     candidates: List[dict],
