@@ -43,12 +43,12 @@ def enviar_email_candidatos_recusados_ses(
         )
 
         body_text = (
-            f"Oi {name}! Tudo bem?\n\n"
+            f"Oi, {name}! Tudo bem?\n\n"
             "Agradecemos sua participação no nosso processo seletivo!\n\n"
             "Para continuarmos melhorando, gostaríamos de saber como foi a sua experiência com nosso time.\n\n"
             "Responda nossa pesquisa de satisfação e nos ajude a evoluir! 😊\n\n"
-            f"Deixar feedback agora: {url_formulario}\n\n"
-            "Já deixamos nosso agradecimento antecipado pelo seu feedback.\n\n"
+            f"Enviar feedback agora: {url_formulario}\n\n"
+            "Deixamos nosso agradecimento antecipado pela sua contribuição\n\n"
             "Abraços,\n"
             "Time de Talent Acquisition da Zup Innovation\n\n"
             "------------------------------\n"
