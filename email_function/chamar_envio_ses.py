@@ -1,5 +1,7 @@
 from typing import List
 from email_function.enviar_ses import send_email
+from utils.marcar_pesquisa_enviada import marcar_email_enviado
+from logs.logger_config import logger
 
 def enviar_email_candidatos_recusados_ses(
     candidates: List[dict],
@@ -20,7 +22,7 @@ def enviar_email_candidatos_recusados_ses(
 
     for cand in to_process:
         name = cand.get("name", "Candidato")
-        recipient = "tp.automations@zup.com.br"#cand.get("email")
+        recipient = "tp.automations@zup.com.br"  # cand.get("email")
         job = cand.get("job")
         rejected_at = cand.get("rejected_at")
 
@@ -40,7 +42,6 @@ def enviar_email_candidatos_recusados_ses(
             .replace("{{URL_FORMULARIO}}", url_formulario)
         )
 
-        # Corpo em texto simples (fallback)
         body_text = (
             f"Oi {name}! Tudo bem?\n\n"
             "Agradecemos sua participação no nosso processo seletivo!\n\n"
@@ -54,12 +55,9 @@ def enviar_email_candidatos_recusados_ses(
             "Este é um e-mail automático. Por favor, não responda."
         )
 
-        # Envio do e-mail via SES
-        resp = send_email(
+        response = send_email(
             sender=sender,
             recipient=recipient,
-            job = job,
-            rejected_at = rejected_at,
             subject=subject,
             body_text=body_text,
             body_html=body_html,
@@ -67,11 +65,18 @@ def enviar_email_candidatos_recusados_ses(
             charset="UTF-8"
         )
 
+        if response["status"] == "S":
+            try:
+                marcar_email_enviado(recipient, rejected_at, job)
+                logger.info(f"CSV atualizado: email_enviado=True para {recipient}/{rejected_at}")
+            except Exception as e:
+                logger.error(f"Falha ao atualizar CSV para {recipient}/{rejected_at}: {e}")
+
         results.append({
             "name": name,
             "email": recipient,
-            "status": resp.get("status"),
-            "message_id": resp.get("response")
+            "status": response["status"],
+            "message_id": response["response"]
         })
 
     return results
