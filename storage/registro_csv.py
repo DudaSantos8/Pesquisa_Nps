@@ -2,7 +2,7 @@ import csv
 import os
 from logs.logger_config import logger
 
-CSV_PATH = r"C:\Users\Zupper\Desktop\TTP\pesquisas_de_satisfacao\registro_candidatos\rejeitados.csv"
+CSV_PATH = r"C:\Users\Zupper\Desktop\Pesquisa_Nps\registro_candidatos\rejeitados.csv"
 
 
 def save_rejected_to_csv(data: list):

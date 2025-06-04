@@ -11,8 +11,8 @@ def main():
     configure(os.getenv("API_KEY"))
     logger.info("Iniciando fluxo de NPS")
 
-    all_c = get_recent_candidates()
-    rejeitados = extract_rejected_candidates(all_c)
+    candidatos = get_recent_candidates(days=10)
+    rejeitados = extract_rejected_candidates(candidatos, days=3)
 
     save_rejected_to_csv(rejeitados)
 
